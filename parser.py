@@ -10,11 +10,11 @@ from downloader import Downloader
 
 class Parser:
 
-    def __init__(self, startLink):
+    def __init__(self, startLink:str) -> None:
         self.baseLink = 'https://xxxxx.hentaichan.live'
         self.startLink = startLink
 
-    def get_max_offset(self):
+    def get_max_offset(self) -> int:
         """
 
             Пагинация на сайте в виде оступов по 20 постов
@@ -27,10 +27,10 @@ class Parser:
             .get('href').replace("?offset=", "")
         return (int(offset))
 
-    def __get_request(self, link):
+    def __get_request(self, link:str) -> requests.models.Request:
         return requests.get(link)
 
-    def __get_html(self, link):
+    def __get_html(self, link:str) -> BeautifulSoup:
         response = self.__get_request(link)
         if response.status_code == 200:
             return BeautifulSoup(response.content, 'html.parser')
@@ -39,7 +39,7 @@ class Parser:
             print(f'Error, waiting for {sleeptime}')
             time.sleep(sleeptime)
 
-    def __get_manga_list(self, link):
+    def __get_manga_list(self, link:str) -> list:
         """
 
             Функция возвращает список из объектов с Названием, Ссылкой, и тэгами Манги на странице
@@ -73,12 +73,12 @@ class Parser:
             })
         return manga_list
 
-    def __get_download_link(self, mangaLink):
+    def __get_download_link(self, mangaLink:str) -> str:
         download_page = self.__get_html(
             mangaLink.replace("/manga/", "/download/"))
         return download_page.find('span', {'class': 'attachment'}).a.get('href')
 
-    def parse_page(self, link):
+    def parse_page(self, link:str) -> None:
         """
 
             Метод парсит страницу и скачивает с неё всю мангу 

@@ -11,7 +11,7 @@ class Downloader:
 
     """
 
-    def download(self,name,link):
+    def download(self,name,link) -> None:
         dir = os.path.join(os.getcwd(),"manga", name)
         if os.path.isdir(dir):
             print("Skipping")
@@ -20,7 +20,7 @@ class Downloader:
         filename = wget.download(link,dir)
         self.unzip(dir,filename)
 
-    def unzip(self,dir,filename):
+    def unzip(self,dir,filename) -> None:
         with zipfile.ZipFile(filename, 'r') as zip_file:
             zip_file.extractall(dir)
 
