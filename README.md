@@ -35,7 +35,7 @@ Linux:
     $ source ./venv/bin/activate
 ```
 
-2. Install the required libraries.
+3. Install the required libraries.
 
 ```
     $ python3 -m pip install -r requirements.txt
