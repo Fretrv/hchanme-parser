@@ -97,7 +97,7 @@ class Parser:
         """
         manga_list = self.__get_manga_list(link)
         for manga in manga_list:
-            print(f"Downloading {manga.title}")
+            print(f"Downloading {manga.title}\n")
             dir = os.path.join(os.getcwd(), "manga", manga.title)
             if os.path.isdir(dir):
                 print("Skipping")
