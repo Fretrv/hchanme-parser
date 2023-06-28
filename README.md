@@ -6,7 +6,7 @@ What works:
 
 1. Parsing all manga pages.
 2. Downloading and unpacking manga archives.
-3. Connecting to MongoDB database and adding mango to it/
+3. Connecting to MongoDB database and adding mango to it
 
 # Installation:
 
@@ -32,7 +32,7 @@ Windows:
 Linux:
 
 ```
-    $ source ./venv/Scripts/activate
+    $ source ./venv/bin/activate
 ```
 
 2. Install the required libraries.
@@ -49,4 +49,4 @@ Run with command
     $ python main.py --mongodb mongodb://localhost:27017
 ```
 
-where `--mongodb` URI link of your MongoDB database.
+where `mongodb://localhost:27017` URI link of your MongoDB database.
